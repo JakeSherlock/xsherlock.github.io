@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jacob Sherlock | Technical Animator & Rigger</title>
+    <style>
+        :root {
+            --bg-color: #0b0b0c;
+            --border-color: #e0e0e0;
+            --text-color: #f0f0f0;
+            --muted-text: #a0a0a0;
+            --accent-color: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+    body {
+    background-color: #0b0b0c;
+    /* Subtle 30px x 30px technical grid pattern */
+    background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+    background-position: center center;
+
+    color: var(--text-color);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    padding: 20px 10px;
+}
+
+        /* Master Outer Wireframe Capsule */
+        .master-container {
+            width: 100%;
+            max-width: 1600px;
+            border: 2px solid var(--border-color);
+            border-radius: 24px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        /* Top Header Capsule */
+        header {
+            border: 2px solid var(--border-color);
+            border-radius: 14px;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--bg-color);
+        }
+
+        .logo {
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        nav {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            transition: opacity 0.2s;
+        }
+
+        nav a:hover {
+            opacity: 0.6;
+        }
+
+        /* Section 1: Hero Video Reel Fold */
+        .hero-section {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 0;
+        }
+
+        .video-capsule {
+            width: 75%;
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            padding: 16px;
+            background: #000;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            border: none;
+        }
+
+        /* Section 2: Details Fold */
+        .details-section {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            padding-bottom: 20px;
+        }
+
+        .top-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr; /* Two-column split since photo is gone */
+            gap: 24px;
+        }
+
+        .content-capsule {
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            padding: 28px;
+            background-color: var(--bg-color);
+        }
+
+        .content-capsule h3 {
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            margin-bottom: 16px;
+            color: var(--accent-color);
+            text-transform: uppercase;
+        }
+
+        /* Shot Breakdown List */
+        .shot-list {
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .shot-list li {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: var(--muted-text);
+        }
+
+        .shot-list li strong {
+            color: var(--text-color);
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        /* About Me Typography */
+        .about-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--muted-text);
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .about-text p {
+            color: var(--muted-text);
+        }
+
+        .social-links {
+            margin-top: 10px;
+            display: flex;
+            gap: 16px;
+        }
+
+        .social-links a {
+            color: var(--accent-color);
+            text-decoration: underline;
+            font-size: 0.9rem;
+        }
+
+        /* Resume Section Capsule */
+        .resume-capsule {
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .resume-header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .resume-btn {
+            background-color: transparent;
+            color: var(--accent-color);
+            border: 1px solid var(--border-color);
+            padding: 8px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .resume-btn:hover {
+            background-color: var(--accent-color);
+            color: var(--bg-color);
+        }
+
+        .resume-preview-container {
+            width: 100%;
+            max-width: 900px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            background: #111;
+        }
+
+        .resume-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            opacity: 0.85;
+            transition: opacity 0.2s;
+        }
+
+        .resume-img:hover {
+            opacity: 1;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .video-capsule {
+                width: 88%;
+            }
+            .top-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .master-container {
+                padding: 10px;
+                gap: 20px;
+            }
+            header {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+            nav {
+                gap: 16px;
+                font-size: 0.85rem;
+            }
+            .video-capsule {
+                width: 95%;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="master-container">
+        
+        <!-- Top Navigation Header -->
+        <header>
+            <a href="index.html" class="logo">JACOB SHERLOCK</a>
+            <nav>
+                <a href="index.html">ANIMATION</a>
+                <a href="rigging.html">RIGGING</a>
+                <a href="blog.html">TECH-ART BLOG</a>
+            </nav>
+        </header>
+
+        <!-- SECTION 1: Hero Video Reel -->
+        <section class="hero-section">
+            <div class="video-capsule">
+                <div class="video-wrapper">
+                    <!-- Replace with your actual Vimeo embedded URL -->
+                    <iframe src="https://player.vimeo.com/video/76979871?background=0&autoplay=0&loop=0&title=0&byline=0&portrait=0" 
+                            allow="autoplay; fullscreen; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: Breakdown, About, & Resume -->
+        <section class="details-section">
+            
+            <div class="top-grid">
+                
+                <!-- Shot Breakdown Capsule -->
+                <div class="content-capsule">
+                    <h3>Shot Breakdown</h3>
+                    <ul class="shot-list">
+                        <li>
+                            <strong>0:00 - 0:15 | -</strong>
+                            -
+                        </li>
+                        <li>
+                            <strong>0:15 - 0:30 | -</strong>
+                            -
+                        </li>
+                        <li>
+                            <strong>0:30 - 0:45 | -</strong>
+                            -
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- About Me Capsule -->
+                <div class="content-capsule">
+                    <h3>About Me</h3>
+                    <div class="about-text">
+                        <p>
+                            Technical Animator and Character Rigger specializing in clean pipeline architecture, Python automation scripts, and seamless cross-platform asset integration for games and interactive media.
+                        </p>
+                        <p>
+                            Experienced in building robust rigs in Autodesk Maya and Blender, optimizing skinning weights, and deploying custom components straight into engines like Unity and Unreal.
+                        </p>
+                        <div class="social-links">
+                            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                            <a href="https://github.com" target="_blank">GitHub</a>
+                            <a href="mailto:jacob@xsherlock.com">Email</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Resume Section Capsule -->
+            <div class="resume-capsule">
+                <div class="resume-header">
+                    <h3>Resume</h3>
+                    <a href="assets/resume.pdf" class="resume-btn" download>DOWNLOAD PDF (ATS)</a>
+                </div>
+                <div class="resume-preview-container">
+                    <!-- Replace 'resume-preview.jpg' with the actual path to your exported resume image -->
+                    <img src="resume-preview.jpg" alt="Jacob Sherlock Resume Preview" class="resume-img">
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+
+</body>
+</html>
